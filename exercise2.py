@@ -16,12 +16,12 @@ __status__ = "Prototype"
 
 # imports one per line
 
-
-def checksum (upc):
+upc_number = input(str('Please Enter UPC number here:'))
+def checksum (upc_number):
     """
     Checks if the digits in a UPC is consistent with checksum
 
-    :param upc: a 12-digit universal product code
+    :param upc_number: a 12-digit universal product code
     :return:
         Boolean: True, checksum is correct
         False, otherwise
@@ -29,12 +29,16 @@ def checksum (upc):
         TypeError if input is not a strong
         ValueError if string is the wrong length (with error string stating how many digits are over or under
     """
-
+    upc_list = list(upc_number)
     # check type of input
     # raise TypeError if not string
-
+    if upc_number != type(str):
+        print('Value Error! Please try again!')
     # check length of string
     # raise ValueError if not 12
+    elif len(upc_number)!=12:
+        print("Value Error! Please make sure your UPC number is 12 digits and reenter it!")
+    else: checksum(upc_number)
 
     # convert string to array
     # hint: use the list function
