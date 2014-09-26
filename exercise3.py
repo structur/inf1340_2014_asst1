@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 
+"""
+Allows 2 players to play the game 'Rock, Paper, Scissors'
+"""
+__author__ = 'Curtis McCord and Ryan Prance'
+__email__ = "curtis.mccord@utoronto.ca and ????"
 
+__copyright__ = "2014 Susan Sim"
+__license__ = "INF1340 2014"
+
+__status__ = "Prototype"
 
 def decide_rps(player1, player2):
     """

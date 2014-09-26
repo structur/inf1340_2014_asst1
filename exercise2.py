@@ -6,11 +6,11 @@
     Assignment 1, Exercise 2, INF1340 Fall 2014
 """
 
-__author__ = 'Susan Sim'
+__author__ = 'Curtis McCord and Ryan Prance'
 __email__ = "ses@drsusansim.org"
 
 __copyright__ = "2014 Susan Sim"
-__license__ = "MIT License"
+__license__ = "All rights reserved until marks returned"
 
 __status__ = "Prototype"
 
