@@ -17,6 +17,8 @@ __status__ = "Prototype"
 # imports one per line
 
 upc_number = input(str('Please Enter UPC number here:'))
+
+
 def checksum (upc_number):
     """
     Checks if the digits in a UPC is consistent with checksum
@@ -38,15 +40,31 @@ def checksum (upc_number):
     # raise ValueError if not 12
     elif len(upc_number)!=12:
         print("Value Error! Please make sure your UPC number is 12 digits and reenter it!")
-    else: checksum(upc_number)
+    else: checksum(upc_odds, upc_evens)
 
-    # convert string to array
-    # hint: use the list function
+upc_array = list(upc_number) # convert string to array
+                                # hint: use the list function
+upc_odds = (int(upc_array[0]) + int(upc_array[2]) + int(upc_array[4]) + \
+            int(upc_array[6]) + int(upc_array[8]) + int(upc_array[10])) * 3
 
-    # generate checksum using the first 11 digits provided
+upc_evens = int(upc_array[1]) + int(upc_array[3]) + int(upc_array[5]) + \
+            int(upc_array[7]) + int(upc_array[9])
+upc_last = int(upc_array[10])
+def checksum(upc_evens, upc_odds):
+        """
+        (int + int) - > int
+        :param upc_array: This is the array made earlier to be broken down into multiple part and summed
+        :return: This returns the sum of upc_odds/3 and upc_evens
+        """# generate checksum using the first 11 digits provided
+        upc_sum = (upc_evens + upc_odds % 10)
+        if upc_sum  == 0:
+            return 10 - upc_sum
+        elif 10 - upc_sum == upc_last:
+                print("UPC number valid.")
+        else:
+                return "Invalid UPC number."
     # check against the the twelfth digit
 
     # return True if they are equal, False otherwise
-
-    return False
+    #return False
 
