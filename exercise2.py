@@ -30,25 +30,26 @@ def checksum(upc_number):
         TypeError if input is not a strong
         ValueError if string is the wrong length (with error string stating how many digits are over or under
     """
-    upc_list = list(upc_number)
     # check type of input
     # raise TypeError if not string
     if upc_number != type(str):
-        print('TypeError! UPC number should be entered as a string!')
+        raise TypeError
     # check length of string
     # raise ValueError if not 12
-    elif len(upc_number)!=12:
-        print("Value Error! UPC number must be 12 characters long!")
-    else: list_upc = list(upc_number) # convert string to array
-    upc_last = int(upc_list[12:]) # slices out the last position and makes it an int
-    upc_list = upc_list[0:11] # keeps the first 11 positions
-    upc_list = [int(i) for i in upc_list] # converts them to ints
-    upc_sum = (sum(upc_list[0::2])* 3) + (sum(upc_list[1::2])) # sum of odds times 3 plus sum of evens
-    upc_mod = upc_sum % 10
-    if 10 - upc_mod == upc_last:
-        print("UPC number valid. Thank you")
+    elif len(upc_number)!= 12:
+        raise ValueError
     else:
-        print("UPC number not valid.")
+        upc_str_list = list(upc_number)  # convert string to list
+        upc_list = [int(i) for i in upc_str_list]  # converts them to ints
+        upc_last = (upc_list[-1])  # slices out the last position and makes it an int
+        upc_list = upc_list[0:11]  # keeps the first 11 positions
+        upc_sum = (sum(upc_list[0::2]) * 3) + (sum(upc_list[1::2]))  # sum of odds times 3 plus sum of evens
+        upc_mod = (upc_sum % 10)
+        upc_checksum = (10 - upc_mod)
+        if upc_checksum == upc_last:
+            return True
+        else:
+            return False
 
 
     # check against the the twelfth digit
