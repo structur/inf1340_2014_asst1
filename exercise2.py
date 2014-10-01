@@ -16,11 +16,10 @@ __status__ = "Prototype"
 
 # imports one per line
 
-upc_number = input(str('Please Enter UPC number here:'))
 
-
-def checksum (upc_number):
+def checksum(upc_number):
     """
+    (int) -> Bool
     Checks if the digits in a UPC is consistent with checksum
 
     :param upc_number: a 12-digit universal product code
@@ -35,34 +34,23 @@ def checksum (upc_number):
     # check type of input
     # raise TypeError if not string
     if upc_number != type(str):
-        print('Value Error! Please try again!')
+        print('TypeError! UPC number should be entered as a string!')
     # check length of string
     # raise ValueError if not 12
     elif len(upc_number)!=12:
-        print("Value Error! Please make sure your UPC number is 12 digits and reenter it!")
-    else: checksum(upc_odds, upc_evens)
+        print("Value Error! UPC number must be 12 characters long!")
+    else: list_upc = list(upc_number) # convert string to array
+    upc_last = int(upc_list[12:]) # slices out the last position and makes it an int
+    upc_list = upc_list[0:11] # keeps the first 11 positions
+    upc_list = [int(i) for i in upc_list] # converts them to ints
+    upc_sum = (sum(upc_list[0::2])* 3) + (sum(upc_list[1::2])) # sum of odds times 3 plus sum of evens
+    upc_mod = upc_sum % 10
+    if 10 - upc_mod == upc_last:
+        print("UPC number valid. Thank you")
+    else:
+        print("UPC number not valid.")
 
-upc_array = list(upc_number) # convert string to array
-                                # hint: use the list function
-upc_odds = (int(upc_array[0]) + int(upc_array[2]) + int(upc_array[4]) + \
-            int(upc_array[6]) + int(upc_array[8]) + int(upc_array[10])) * 3
 
-upc_evens = int(upc_array[1]) + int(upc_array[3]) + int(upc_array[5]) + \
-            int(upc_array[7]) + int(upc_array[9])
-upc_last = int(upc_array[10])
-def checksum(upc_evens, upc_odds):
-        """
-        (int + int) - > int
-        :param upc_array: This is the array made earlier to be broken down into multiple part and summed
-        :return: This returns the sum of upc_odds/3 and upc_evens
-        """# generate checksum using the first 11 digits provided
-        upc_sum = (upc_evens + upc_odds % 10)
-        if upc_sum  == 0:
-            return 10 - upc_sum
-        elif 10 - upc_sum == upc_last:
-                print("UPC number valid.")
-        else:
-                return "Invalid UPC number."
     # check against the the twelfth digit
 
     # return True if they are equal, False otherwise

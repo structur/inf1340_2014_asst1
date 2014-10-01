@@ -11,42 +11,32 @@ __license__ = "INF1340 2014"
 
 __status__ = "Prototype"
 
-Rock = int(0)
-Paper = int(1)
-Scissors = int(2)
+rps_results = {}
+rps_results[("Rock", "Paper")] = 2
+rps_results[("Rock", "Scissors")] = 1
+rps_results[("Rock", "Rock")] = 0
+rps_results[("Paper", "Rock")] = 1
+rps_results[("Paper","Paper")] = 0
+rps_results[("Paper","Scissors")] = 2
+rps_results[("Scissors", "Scissors")] = 0
+rps_results[("Scissors", "Paper")] = 1
+rps_results[("Scissors", "Rock")] = 2
 
-def rps_winner(player1, player2):
+def decide_rps(player1, player2):
     """
-    (int, int) -> int4
-    :param p1_choice: this is an int (0, 1, 2) corresponding to Player 1's input
-    :param p2_choice: this is an int (0, 1, 2) corresponding to Player 2's input
+    (tuple) -> int
+    :param p1_choice: This is a string linked to a tuple in the dictionary rps_results
+    :param p2_choice: This is a string linked to a tuple in the dictionary rps_results
     :return: the int returned (0, 1, 2) is the victor of rps; 0 is a tie, 1 is a P1 victory, and 2 is a P2 victory
 
-    This function takes the two str inputs (which have now been converted to ints).
-    It then subtracts them from one another (P1 - P2) and then applies modulo (3) (there are three choices).
+    This function take a tuple and returns a value which shows the winner
+    It then subtracts them from one another (P1 - P2)
     It returns a value (0, 1, 2) corresponding to the victor.
     """
-    rps_winner = ((player1 - player2) % 3)
-    if rps_winner == 0:
+    if rps_results == 0:
         print("0! Tie game!")
-    elif rps_winner == 1:
+    elif rps_results == 1:
         print("Player 1 wins!")
     else:
         print("Player 2 wins!")
 
-def decide_rps(player1, player2):
-    """
-   # (str, str) ->
-    #This function allows players 1 and 2 to input
-    #:param player1: is an input string (Rock, Paper, or Scissors)
-    #:param player2: is an input string (Rock, Paper, or Scissors)
-    #:return: If both players enter valid answers, then this function will execute rps_winner
-    #"""
-player1 = input(str('Player 1, choose Rock, Paper, or Scissors: '))
-if player1 == 'Rock' or  player1 == 'Paper' or player1 == 'Scissors':
-    player2 = input(str('Player 2, choose Rock, Paper, or Scissors: '))
-else: print('Woops! Please try again.')
-if player2 == 'Rock' or player2 == 'Paper' or player2 == 'Scissors':
-    rps_winner(player1, player2)
-else:
-    print ('Invalid choice! Pick Rock or Paper or Scissors')
