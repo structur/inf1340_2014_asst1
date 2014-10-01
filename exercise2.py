@@ -32,7 +32,7 @@ def checksum(upc_number):
     """
     # check type of input
     # raise TypeError if not string
-    if upc_number != type(str):
+    if type(upc_number) != str:
         raise TypeError
     # check length of string
     # raise ValueError if not 12
