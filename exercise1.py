@@ -11,8 +11,8 @@ Example:
 
 """
 
-__author__ = 'Curtis McCord and Ryan Prace'
-__email__ = "curtis.mccord@utoronto.ca"
+__author__ = 'Curtis McCord and Ryan Prance'
+__email__ = "curtis.mccord@utoronto.ca; ryan.prance@mail.utoronto.ca"
 
 __copyright__ = "2014 Susan Sim"
 __license__ = ""
@@ -44,7 +44,7 @@ def grade_to_gpa(grade):
     gpa = 0.0
 
     if type(grade) is str:
-        print ("letter") # remove this line once the code is implemented
+        print("letter")  # remove this line once the code is implemented
         # check that the grade is one of the accepted values
         # assign grade to letter_grade
     elif type(grade) is int:
@@ -60,7 +60,17 @@ def grade_to_gpa(grade):
     # write a long if-statement to convert letter_grade
     # assign the value to gpa
     if letter_grade == "A":
-        gpa = 4.0
+        gpa = '4.0'
+    elif letter_grade == "A-":
+        gpa = '3.7'
+    elif letter_grade == "B+":
+        gpa = '3.3'
+    elif letter_grade == "B":
+        gpa = '3.0'
+    elif letter_grade == "B-":
+        gpa = '2.7'
+    elif letter_grade == "FZ":
+        gpa = '0.0'
+    print(gpa)
 
-    return gpa
 
