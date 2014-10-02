@@ -29,7 +29,7 @@ def decide_rps(player1, player2):
     :param p2_choice: This is a string linked to a tuple in the dictionary rps_results
     :return: the int returned (0, 1, 2) is the victor of rps; 0 is a tie, 1 is a P1 victory, and 2 is a P2 victory
 
-    This function take a tuple and returns a value which shows the winner, based on a dictionary
+    This function take a tuple and returns a value which shows the winner, based on a dictionary!
     """
     return rps_results[(player1, player2)]
 
