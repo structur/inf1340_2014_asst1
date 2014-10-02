@@ -21,14 +21,17 @@ def test_letter_grade():
     """
     assert grade_to_gpa("A+") == 4.0
     assert grade_to_gpa("A") == 4.0
-    assert grade_to_gpa("A-") == 4.0
-    assert grade_to_gpa("B+") == 4.0
-    assert grade_to_gpa("B") == 4.0
-    assert grade_to_gpa("B-") == 4.0
-    assert grade_to_gpa("FZ") == 4.0
+    assert grade_to_gpa("A-") == 3.7
+    assert grade_to_gpa("B+") == 3.3
+    assert grade_to_gpa("B") == 3.0
+    assert grade_to_gpa("B-") == 2.7
+    assert grade_to_gpa("FZ") == 0.0
     
     with pytest.raises(ValueError):
         grade_to_gpa("q")
+        grade_to_gpa("C-")
+        grade_to_gpa('A++')
+        grade_to_gpa('85%')
     # add more tests for invalid values
 
 
@@ -75,5 +78,16 @@ def test_float_input():
     """
     with pytest.raises(TypeError):
         grade_to_gpa(82.5)
+        grade_to_gpa(['A+', 100])
+        grade_to_gpa(('B+', 79))
 
 # add functions for any other tests
+
+def test_gpa_consistency():
+    """
+    Makes sure that the letters and numbers return the same values
+    """
+    assert grade_to_gpa(100) == grade_to_gpa("A+")
+    assert grade_to_gpa(80) == grade_to_gpa("A-")
+    assert grade_to_gpa(700) ==grade_to_gpa("B-")
+    assert grade_to_gpa(50) ==grade_to_gpa("FZ")

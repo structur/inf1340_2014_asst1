@@ -4,7 +4,7 @@ import pytest
 from exercise3 import decide_rps
 
 
-def test_checksum():
+def test_decide_rps():
     """
     Inputs that are the correct format and length
     """
