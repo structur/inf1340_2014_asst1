@@ -19,7 +19,7 @@ __status__ = "Prototype: Validated"
 
 def checksum(upc_number):
     """
-    (int) -> Bool
+    (str) -> Bool
     Checks if the digits in a UPC is consistent with checksum
 
     :param upc_number: a 12-digit universal product code
@@ -39,8 +39,8 @@ def checksum(upc_number):
     elif len(upc_number)!= 12:
         raise ValueError
     else:
-        upc_str_list = list(upc_number)  # convert string to list
-        upc_int_list = [int(i) for i in upc_str_list]  # converts them to ints
+        upc_str_list = list(upc_number)  # convert string to list of strings
+        upc_int_list = [int(i) for i in upc_str_list]  # converts strings to ints
         upc_last = (upc_int_list[-1])  # makes the checksum (last) digit a variable
         upc_int_list = upc_int_list[0:11]  # keeps the first 11 positions
         upc_sum = (sum(upc_int_list[0::2]) * 3) + (sum(upc_int_list[1::2]))  # sum of odds times 3 plus sum of evens

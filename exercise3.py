@@ -22,6 +22,8 @@ rps_results[("Scissors", "Scissors")] = 0
 rps_results[("Scissors", "Paper")] = 1
 rps_results[("Scissors", "Rock")] = 2
 
+valid_inputs = ["Rock", "Paper", "Scissors"]
+
 def decide_rps(player1, player2):
     """
     (tuple) -> int
@@ -31,5 +33,9 @@ def decide_rps(player1, player2):
 
     This function take a tuple and returns a value which shows the winner, based on a dictionary!
     """
-    return rps_results[(player1, player2)]
-
+    if player1 not in valid_inputs:
+        raise ValueError("Player 1, we didn\'t recognize your entry.")
+    elif player2 not in valid_inputs:
+        raise ValueError("Player 2, we didn\'t recognize your entry.")
+    else:
+        return rps_results[(player1, player2)]
