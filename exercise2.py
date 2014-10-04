@@ -7,19 +7,19 @@
 """
 
 __author__ = 'Curtis McCord and Ryan Prance'
-__email__ = "ses@drsusansim.org"
+__email__ = "curtis.mccord@utoronto.ca ryan.prance@utoronto.ca"
 
-__copyright__ = "2014 Susan Sim"
+__copyright__ = "2014 Susan Sim, modified by Curtis McCord and Ryan Prance"
 __license__ = "All rights reserved until marks returned"
 
-__status__ = "Prototype"
+__status__ = "Prototype: Validated"
 
 # imports one per line
 
 
 def checksum(upc_number):
     """
-    (int) -> Bool
+    (str) -> Bool
     Checks if the digits in a UPC is consistent with checksum
 
     :param upc_number: a 12-digit universal product code
@@ -32,28 +32,21 @@ def checksum(upc_number):
     """
     # check type of input
     # raise TypeError if not string
-    if upc_number != type(str):
+    if type(upc_number) != str:
         raise TypeError
     # check length of string
     # raise ValueError if not 12
     elif len(upc_number)!= 12:
         raise ValueError
     else:
-        upc_str_list = list(upc_number)  # convert string to list
-        upc_list = [int(i) for i in upc_str_list]  # converts them to ints
-        upc_last = (upc_list[-1])  # slices out the last position and makes it an int
-        upc_list = upc_list[0:11]  # keeps the first 11 positions
-        upc_sum = (sum(upc_list[0::2]) * 3) + (sum(upc_list[1::2]))  # sum of odds times 3 plus sum of evens
+        upc_str_list = list(upc_number)  # convert string to list of strings
+        upc_int_list = [int(i) for i in upc_str_list]  # converts strings to ints
+        upc_last = (upc_int_list[-1])  # makes the checksum (last) digit a variable
+        upc_int_list = upc_int_list[0:11]  # keeps the first 11 positions
+        upc_sum = (sum(upc_int_list[0::2]) * 3) + (sum(upc_int_list[1::2]))  # sum of odds times 3 plus sum of evens
         upc_mod = (upc_sum % 10)
         upc_checksum = (10 - upc_mod)
-        if upc_checksum == upc_last:
-            return True
+        if upc_checksum == upc_last:  # check against the the twelfth digit
+            return True  # return True if they are equal, False otherwise
         else:
             return False
-
-
-    # check against the the twelfth digit
-
-    # return True if they are equal, False otherwise
-    #return False
-
