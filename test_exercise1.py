@@ -72,9 +72,9 @@ def test_percentage_grade():
         grade_to_gpa(-1)
 
 
-def test_float_input():
+def test_invalid_input():
     """
-    Float inputs
+    Float, tuple and list inputs
     """
     with pytest.raises(TypeError):
         grade_to_gpa(82.5)
@@ -83,11 +83,17 @@ def test_float_input():
 
 # add functions for any other tests
 
+
 def test_gpa_consistency():
     """
     Makes sure that the letters and numbers return the same values
     """
     assert grade_to_gpa(100) == grade_to_gpa("A+")
     assert grade_to_gpa(80) == grade_to_gpa("A-")
-    assert grade_to_gpa(700) ==grade_to_gpa("B-")
-    assert grade_to_gpa(50) ==grade_to_gpa("FZ")
+    assert grade_to_gpa(70) == grade_to_gpa("B-")
+    assert grade_to_gpa(50) == grade_to_gpa("FZ")
+
+test_letter_grade()
+test_percentage_grade()
+test_invalid_input()
+test_gpa_consistency()

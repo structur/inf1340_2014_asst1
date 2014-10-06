@@ -57,22 +57,22 @@ def grade_to_gpa(grade):
         # check that grade is in the accepted range (0-100)
         if 0 <= grade <= 100:
         # convert the numeric grade to a letter grade
-         mark_to_letter = grade
+            mark_to_letter = grade
         # assign the value to letter_grade
-         if mark_to_letter >= 90:
-            letter_grade= "A+"
-         elif mark_to_letter >= 85:
-            letter_grade = "A"
-         elif mark_to_letter >= 80:
-            letter_grade = "A-"
-         elif mark_to_letter >= 77:
-            letter_grade = "B+"
-         elif mark_to_letter >= 73:
-            letter_grade = "B"
-         elif mark_to_letter >= 70:
-            letter_grade = "B-"
-         elif mark_to_letter >= 0:
-            letter_grade = "FZ"
+            if mark_to_letter >= 90:
+                letter_grade= "A+"
+            elif mark_to_letter >= 85:
+                letter_grade = "A"
+            elif mark_to_letter >= 80:
+                letter_grade = "A-"
+            elif mark_to_letter >= 77:
+                letter_grade = "B+"
+            elif mark_to_letter >= 73:
+                letter_grade = "B"
+            elif mark_to_letter >= 70:
+                letter_grade = "B-"
+            elif mark_to_letter >= 0:
+                letter_grade = "FZ"
         else:
             raise ValueError("Grade must be within range of 0-100")
     else:
@@ -81,18 +81,19 @@ def grade_to_gpa(grade):
 
         # assign the value to gpa
     if letter_grade == "A+":
-        gpa = '4.0'
+        gpa = 4.0
     elif letter_grade == "A":
-        gpa = '4.0'
+        gpa = 4.0
     elif letter_grade == "A-":
-        gpa = '3.7'
+        gpa = 3.7
     elif letter_grade == "B+":
-        gpa = '3.3'
+        gpa = 3.3
     elif letter_grade == "B":
-        gpa = '3.0'
+        gpa = 3.0
     elif letter_grade == "B-":
-        gpa = '2.7'
+        gpa = 2.7
     elif letter_grade == "FZ":
-        gpa = '0.0'
+        gpa = 0.0
+
     return gpa
 

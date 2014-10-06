@@ -18,5 +18,16 @@ def test_decide_rps():
     assert decide_rps("Paper", "Scissors") == 2
     assert decide_rps("Paper", "Rock") == 1
 
-    # other tests
+    # other tests for invalid entries
+def test_invalid_params():
+    """
+    Inputs that are not valid game moves
+    """
+    with pytest.raises(ValueError):
+        decide_rps("Rock", "Cheeses")
+        decide_rps("Sword", "Giraffe")
+        decide_rps(1, 4)
+        decide_rps(4.0, "Rock")
 
+test_decide_rps()
+test_invalid_params()
