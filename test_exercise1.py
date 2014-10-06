@@ -29,8 +29,11 @@ def test_letter_grade():
     # further tests for invalid values
     with pytest.raises(ValueError):
         grade_to_gpa("q")
+    with pytest.raises(ValueError):
         grade_to_gpa("C-")
+    with pytest.raises(ValueError):
         grade_to_gpa('A++')
+    with pytest.raises(ValueError):
         grade_to_gpa('85%')
 
 
@@ -68,6 +71,7 @@ def test_percentage_grade():
 
     with pytest.raises(ValueError):
         grade_to_gpa(101)
+    with pytest.raises(ValueError):
         grade_to_gpa(-1)
 
 
@@ -77,7 +81,9 @@ def test_invalid_input():
     """
     with pytest.raises(TypeError):
         grade_to_gpa(82.5)
+    with pytest.raises(TypeError):
         grade_to_gpa(['A+', 100])
+    with pytest.raises(TypeError):
         grade_to_gpa(('B+', 79))
 
 # add functions for any other tests

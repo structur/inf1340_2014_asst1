@@ -38,18 +38,22 @@ def test_input():
     """
     with pytest.raises(TypeError):
         checksum(1.0)
+    with pytest.raises(TypeError):
         checksum(786936224306)
+    with pytest.raises(TypeError):
         checksum([1,2])
+    with pytest.raises(TypeError):
         checksum(True)
 
     with pytest.raises(ValueError):
         checksum("1")
+    with pytest.raises(ValueError):
         checksum("1234567890")
+    with pytest.raises(ValueError):
         checksum("noteven")
+    with pytest.raises(ValueError):
         checksum("thisonehastobetoolong")
 
     # other tests
 
 # add functions for any other tests
-test_checksum()
-test_input()

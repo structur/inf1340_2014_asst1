@@ -35,8 +35,11 @@ def test_invalid_params():
     """
     with pytest.raises(ValueError):
         decide_rps("Rock", "Cheeses")
+    with pytest.raises(ValueError):
         decide_rps("Sword", "Giraffe")
+    with pytest.raises(ValueError):
         decide_rps(1, 4)
+    with pytest.raises(ValueError):
         decide_rps(4.0, "Rock")
 
 test_decide_rps()
