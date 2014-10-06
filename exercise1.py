@@ -17,7 +17,7 @@ __email__ = "curtis.mccord@utoronto.ca; ryan.prance@mail.utoronto.ca"
 __copyright__ = "2014 Susan Sim"
 __license__ = ""
 
-__status__ = "Prototype"
+__status__ = "Validated"
 
 # imports one per line
 
@@ -74,10 +74,10 @@ def grade_to_gpa(grade):
          elif mark_to_letter >= 0:
             letter_grade = "FZ"
         else:
-            raise ValueError("Grade must be within range of 0-100")
+            raise ValueError("Grade must be within range of 0-100!")
     else:
         # raise a TypeError exception
-        raise TypeError("Invalid type passed as parameter")
+        raise TypeError("Invalid type passed as parameter! Please enter valid grade.")
 
         # assign the value to gpa
     if letter_grade == "A+":
