@@ -2,13 +2,13 @@
 
 """ Module to test exercise1.py """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
+__author__ = 'Curtis McCord and Ryan Prance'
+__email__ = "curtis.mccord@utoronto.ca; ryan.prance@mail.utoronto.ca"
 
-__copyright__ = "2014 Susan Sim"
-__license__ = "MIT License"
+__copyright__ = "All rights reserved until grade returned"
+__license__ = "INF1340"
 
-__status__ = "Prototype"
+__status__ = "Tested Prototype"
 
 # imports one per line
 import pytest
@@ -26,13 +26,15 @@ def test_letter_grade():
     assert grade_to_gpa("B") == 3.0
     assert grade_to_gpa("B-") == 2.7
     assert grade_to_gpa("FZ") == 0.0
-    
+    # further tests for invalid values
     with pytest.raises(ValueError):
         grade_to_gpa("q")
+    with pytest.raises(ValueError):
         grade_to_gpa("C-")
+    with pytest.raises(ValueError):
         grade_to_gpa('A++')
+    with pytest.raises(ValueError):
         grade_to_gpa('85%')
-    # add more tests for invalid values
 
 
 def test_percentage_grade():
@@ -69,19 +71,23 @@ def test_percentage_grade():
 
     with pytest.raises(ValueError):
         grade_to_gpa(101)
+    with pytest.raises(ValueError):
         grade_to_gpa(-1)
 
 
-def test_float_input():
+def test_invalid_input():
     """
-    Float inputs
+    Float, tuple and list inputs
     """
     with pytest.raises(TypeError):
         grade_to_gpa(82.5)
+    with pytest.raises(TypeError):
         grade_to_gpa(['A+', 100])
+    with pytest.raises(TypeError):
         grade_to_gpa(('B+', 79))
 
 # add functions for any other tests
+
 
 def test_gpa_consistency():
     """
@@ -89,5 +95,10 @@ def test_gpa_consistency():
     """
     assert grade_to_gpa(100) == grade_to_gpa("A+")
     assert grade_to_gpa(80) == grade_to_gpa("A-")
-    assert grade_to_gpa(700) ==grade_to_gpa("B-")
-    assert grade_to_gpa(50) ==grade_to_gpa("FZ")
+    assert grade_to_gpa(70) == grade_to_gpa("B-")
+    assert grade_to_gpa(50) == grade_to_gpa("FZ")
+
+test_letter_grade()
+test_percentage_grade()
+test_invalid_input()
+test_gpa_consistency()

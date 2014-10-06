@@ -19,15 +19,15 @@ __status__ = "Prototype: Validated"
 
 def checksum(upc_number):
     """
-    (str) -> Bool
-    Checks if the digits in a UPC is consistent with checksum
+    Checks if the digits in a UPC is consistent with checksum (final) digit
 
-    :param upc_number: a 12-digit universal product code
+    (str) -> Bool
+    :param upc_number: a 12-digit universal product code in str format
     :return:
         Boolean: True, checksum is correct
         False, otherwise
     :raises:
-        TypeError if input is not a strong
+        TypeError if input is not a string
         ValueError if string is the wrong length (with error string stating how many digits are over or under
     """
     # check type of input
@@ -36,8 +36,9 @@ def checksum(upc_number):
         raise TypeError
     # check length of string
     # raise ValueError if not 12
-    elif len(upc_number)!= 12:
-        raise ValueError
+    elif len(upc_number) != 12:
+        upc_over_under = (12 - len(upc_number))  # shows the discrepancy between entered and expected values
+        raise ValueError("Entered UPC is" + str(upc_over_under) + "digits away from 12")
     else:
         upc_str_list = list(upc_number)  # convert string to list of strings
         upc_int_list = [int(i) for i in upc_str_list]  # converts strings to ints
