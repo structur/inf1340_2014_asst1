@@ -2,13 +2,13 @@
 
 """ Module to test exercise1.py """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
+__author__ = 'Curtis McCord and Ryan Prance'
+__email__ = "curtis.mccord@utoronto.ca; ryan.prance@mail.utoronto.ca"
 
-__copyright__ = "2014 Susan Sim"
-__license__ = "MIT License"
+__copyright__ = "All rights reserved until grade returned"
+__license__ = "INF1340"
 
-__status__ = "Prototype"
+__status__ = "Tested Prototype"
 
 # imports one per line
 import pytest
@@ -26,13 +26,12 @@ def test_letter_grade():
     assert grade_to_gpa("B") == 3.0
     assert grade_to_gpa("B-") == 2.7
     assert grade_to_gpa("FZ") == 0.0
-    
+    # further tests for invalid values
     with pytest.raises(ValueError):
         grade_to_gpa("q")
         grade_to_gpa("C-")
         grade_to_gpa('A++')
         grade_to_gpa('85%')
-    # add more tests for invalid values
 
 
 def test_percentage_grade():

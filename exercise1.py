@@ -15,9 +15,9 @@ __author__ = 'Curtis McCord and Ryan Prance'
 __email__ = "curtis.mccord@utoronto.ca; ryan.prance@mail.utoronto.ca"
 
 __copyright__ = "2014 Susan Sim"
-__license__ = ""
+__license__ = "INF1340"
 
-__status__ = "Prototype"
+__status__ = "Tested Prototype"
 
 # imports one per line
 
@@ -26,6 +26,7 @@ def grade_to_gpa(grade):
     """
     Returns the UofT Graduate GPA for a given grade.
 
+    (int OR str) -> float
     :param:
         grade (integer or string): Grade to be converted
             If integer, accepted values are 0-100.
@@ -76,7 +77,6 @@ def grade_to_gpa(grade):
         else:
             raise ValueError("Grade must be within range of 0-100")
     else:
-        # raise a TypeError exception
         raise TypeError("Invalid type passed as parameter")
 
         # assign the value to gpa

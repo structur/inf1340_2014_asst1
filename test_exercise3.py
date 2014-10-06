@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
 
+""" Module to test exercise3.py """
+
+__author__ = 'Curtis McCord and Ryan Prance '
+__email__ = "curtis.mccord@utoronto.ca; ryan.prance@mail.utoronto.ca"
+
+__copyright__ = "2014 Susan Sim"
+__license__ = "INF1340"
+
+__status__ = "Tested Prototype"
+
 import pytest
 from exercise3 import decide_rps
 

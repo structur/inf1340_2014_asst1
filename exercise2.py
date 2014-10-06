@@ -19,10 +19,10 @@ __status__ = "Prototype: Validated"
 
 def checksum(upc_number):
     """
-    (str) -> Bool
-    Checks if the digits in a UPC is consistent with checksum
+    Checks if the digits in a UPC is consistent with checksum (final) digit
 
-    :param upc_number: a 12-digit universal product code
+    (str) -> Bool
+    :param upc_number: a 12-digit universal product code in str format
     :return:
         Boolean: True, checksum is correct
         False, otherwise
@@ -36,7 +36,7 @@ def checksum(upc_number):
         raise TypeError
     # check length of string
     # raise ValueError if not 12
-    elif len(upc_number)!= 12:
+    elif len(upc_number) != 12:
         raise ValueError
     else:
         upc_str_list = list(upc_number)  # convert string to list of strings
