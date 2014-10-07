@@ -52,7 +52,7 @@ def grade_to_gpa(grade):
 
             letter_grade = grade
         else:
-            raise ValueError("Invalid input!  Grade must be an acceptable graduate letter grade.")
+            raise ValueError("Invalid input!  Grade must be an SGS grade.")
 
     elif type(grade) is int:
         # check that grade is in the accepted range (0-100)
@@ -75,9 +75,9 @@ def grade_to_gpa(grade):
             elif mark_to_letter >= 0:
                 letter_grade = "FZ"
         else:
-            raise ValueError("Grade must be within range of 0-100")
+            raise ValueError("Grade must be within range of 0-100.")
     else:
-        raise TypeError("Invalid type passed as parameter")
+        raise TypeError("Invalid type passed as parameter! Please input a valid SGS grade.")
 
         # assign the value to gpa
     if letter_grade == "A+":
